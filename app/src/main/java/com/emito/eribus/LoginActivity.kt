@@ -35,7 +35,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         loginButton.setOnClickListener {
-            Toast.makeText(applicationContext, "Clicked Login", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(applicationContext, "Clicked Login", Toast.LENGTH_SHORT).show()
+            var intent=Intent(this,DriverActivity::class.java)
+            startActivity(intent)
         }
     }
     //endregion
