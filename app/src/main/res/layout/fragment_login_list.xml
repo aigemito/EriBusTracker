@@ -6,7 +6,7 @@
     tools:context=".fragment.LoginListFragment">
 
     <include
-        layout="@layout/route_activity"
+        layout="@layout/activity_users_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

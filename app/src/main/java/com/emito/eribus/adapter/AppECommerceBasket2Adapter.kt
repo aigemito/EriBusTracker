@@ -154,13 +154,13 @@ class AppECommerceUsers2Adapter(private val UsersList: List<Users>) : RecyclerVi
     }
 
     inner class PlaceViewHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
-        internal var itemImageView: ImageView = view.itemImageView
-        internal var itemNameTextView: TextView = view.itemNameTextView
-        internal var priceTextView: TextView = view.priceTextView
+        internal var itemImageView: ImageView = view.ivUserProfile
+        //internal var itemNameTextView: TextView = view.itemNameTextView
+        internal var priceTextView: TextView = view.emailTextView
         internal var holderCardView: CardView = view.holderCardView
         internal var deleteImageView: ImageView = view.deleteImageView
-        internal var subTotalTextView: TextView = view.subTotalTextView
-        internal var attributeTextView: TextView = view.attributeTextView
+        internal var subTotalTextView: TextView = view.tvUserType
+        internal var attributeTextView: TextView = view.tvRemark
 
     }
 }
