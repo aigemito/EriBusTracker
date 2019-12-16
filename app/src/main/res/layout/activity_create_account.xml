@@ -84,18 +84,6 @@ tools:context=".createAccount">
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/registerButton" />
 
-            <ImageView
-                android:id="@+id/imageView98"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="60dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/lightbulb" />
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/view55"
                 android:layout_width="0dp"
@@ -117,11 +105,11 @@ tools:context=".createAccount">
                         android:id="@+id/textView186"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="32dp"
+                        android:layout_marginEnd="16dp"
                         android:fontFamily="@font/roboto"
-                        android:text="Username"
+                        android:text="FULL NAME"
                         android:textAlignment="viewStart"
                         android:textAllCaps="true"
                         android:textColor="@color/md_grey_500"
@@ -131,15 +119,15 @@ tools:context=".createAccount">
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
-                        android:id="@+id/editText5"
+                        android:id="@+id/etUserName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
+                        android:layout_marginEnd="16dp"
                         android:ems="10"
                         android:fontFamily="@font/roboto"
-                        android:hint="UserName"
+                        android:hint="Full Name"
                         android:inputType="textPersonName"
                         android:textAlignment="viewStart"
                         android:textColor="@color/md_grey_600"
@@ -164,10 +152,10 @@ tools:context=".createAccount">
                         android:textSize="@dimen/font_body_size"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editText11" />
+                        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
                     <EditText
-                        android:id="@+id/editText6"
+                        android:id="@+id/etPassword"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
@@ -201,10 +189,10 @@ tools:context=".createAccount">
                         android:textSize="@dimen/font_body_size"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+                        app:layout_constraintTop_toBottomOf="@+id/etUserName" />
 
                     <EditText
-                        android:id="@+id/editText11"
+                        android:id="@+id/etEmail"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
@@ -229,17 +217,30 @@ tools:context=".createAccount">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/roboto_medium"
-                android:text="Eri BusTracker"
+                android:text="Select Photo"
                 android:textAlignment="viewStart"
                 android:textColor="@color/md_grey_800"
                 android:textSize="@dimen/font_h6_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView98" />
+                app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="238dp"
+                android:layout_height="203dp"
+                android:layout_marginStart="88dp"
+                android:layout_marginTop="44dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.117"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/badge_menu"
+                tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
