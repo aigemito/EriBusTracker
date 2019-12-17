@@ -7,6 +7,8 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import com.emito.eribus.activity.AdministratorActivity
+import com.emito.eribus.activity.CustomerActivity
+import com.emito.eribus.activity.DriverActivity
 import com.emito.eribus.model.Users
 import com.emito.eribus.utils.ValueListenerAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -53,12 +55,14 @@ class LoginActivity : AppCompatActivity() {
                         finish()
                     }
                     "Driver"->{
-                        Toast.makeText(baseContext, "Please provide driver activity here",
-                            Toast.LENGTH_SHORT).show()
+                        var intent=Intent(this,DriverActivity::class.java)
+                        startActivity(intent)
+                        finish()
                     }
                     "Customer"->{
-                        Toast.makeText(baseContext, "Please provide customer activity here",
-                            Toast.LENGTH_SHORT).show()
+                        var intent=Intent(this,CustomerActivity::class.java)
+                        startActivity(intent)
+                        finish()
                     }
                 }
 

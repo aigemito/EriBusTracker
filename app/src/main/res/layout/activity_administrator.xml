@@ -34,6 +34,6 @@ tools:openDrawer="start">
     app:itemIconTint="@color/md_grey_600"
     app:itemTextColor="@color/md_grey_600"
     app:headerLayout="@layout/feature_menu_general_menu_4_nav_header"
-    app:menu="@menu/menu_menu_4" />
+    app:menu="@menu/menu_menu_administrator" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

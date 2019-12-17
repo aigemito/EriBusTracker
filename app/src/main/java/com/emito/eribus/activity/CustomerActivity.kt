@@ -26,14 +26,14 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.feature_menu_general_menu_4_activity.*
 
-class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
+class CustomerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
     internal lateinit var toolbar: Toolbar
     internal lateinit var drawerLinearLayout: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_administrator)
+        setContentView(R.layout.activity_customer)
 
         initUI()
     }
@@ -78,26 +78,19 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         // Handle navigation view item clicks here.
         val id = item.itemId
 
-        if (id == R.id.nav_home) {
+        if (id == R.id.nav_customer_home) {
             Toast.makeText(this, "Clicked Home.", Toast.LENGTH_SHORT).show()
-        } else if (id == R.id.nav_userList) {
-            try{
-                this.supportFragmentManager.beginTransaction().replace(R.id.content_frame,LoginListFragment())
-                    .commitAllowingStateLoss()
-            }catch (e:Exception){
-                Log.d("error:", "Error! Can't Replace")
-            }
-        } else if (id == R.id.nav_Drivers) {
+        } else if (id == R.id.nav_customer_shareLocation) {
+            Toast.makeText(this, "Location Shared.", Toast.LENGTH_SHORT).show()
+        } else if (id == R.id.nav_customer_booking) {
             Toast.makeText(this, "Clicked Drivers.", Toast.LENGTH_SHORT).show()
-        } else if (id == R.id.nav_Bus) {
+        } else if (id == R.id.nav_customer_booking_history) {
             Toast.makeText(this, "Clicked Buses.", Toast.LENGTH_SHORT).show()
         } else if (id == R.id.nav_route) {
             Toast.makeText(this, "Clicked Routes.", Toast.LENGTH_SHORT).show()
         } else if (id == R.id.nav_map) {
-           val intent=Intent(this,RouteDetailActivity::class.java)
-            startActivity(intent)
+            Toast.makeText(this, "Clicked Routes.", Toast.LENGTH_SHORT).show()
         }else if (id == R.id.nav_search) {
-
             Toast.makeText(this, "Clicked Search.", Toast.LENGTH_SHORT).show()
         } else if (id == R.id.nav_profile) {
             try{
@@ -218,13 +211,7 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
 
         drawerLinearLayout = rightHeaderLayout.findViewById(R.id.drawerLinearLayout)
 
-        //for the fragment
-        try{
-            this.supportFragmentManager.beginTransaction().add(R.id.content_frame,LoginListFragment())
-                .commitAllowingStateLoss()
-        }catch (e:Exception){
-            Log.d("error:", "Error! Can't Replace")
-        }
+
     }
 
     private fun initToolbar() {
@@ -279,9 +266,9 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
 //        val spn_to_time =
 //            dialog.findViewById<View>(R.id.spn_to_time) as Button
 //        val tv_email = dialog.findViewById<View>(R.id.tv_email) as TextView
-          val et_FullName = dialog.findViewById<View>(R.id.etUserFullName) as EditText
-          val et_Email = dialog.findViewById<View>(R.id.etUserEmail) as EditText
-          val et_Password = dialog.findViewById<View>(R.id.etUserPassword) as EditText
+        val et_FullName = dialog.findViewById<View>(R.id.etUserFullName) as EditText
+        val et_Email = dialog.findViewById<View>(R.id.etUserEmail) as EditText
+        val et_Password = dialog.findViewById<View>(R.id.etUserPassword) as EditText
 //        val et_location =
 //            dialog.findViewById<View>(R.id.et_location) as EditText
 //        val cb_allday: AppCompatCheckBox =

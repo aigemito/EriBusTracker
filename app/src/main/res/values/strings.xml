@@ -1,6 +1,31 @@
 <resources>
     <string name="app_name">EriBus</string>
-
+    <string name="google_maps_key">AIzaSyBcdEEvt3aO4ZpCfBDIg7D39XbShppmrTo</string>
+    <string name="aboutme">
+        Currently I am pursuing my masters in computer science at Maharahi University of Management.I went to a collage called Eritrea Institute of Technology and graduated by computer engineering.After word I joined to a company Liyanet Engineering and Technology, my emphasis is in design,developing and testing softwares.
+    </string>
+    <string name="strength">
+        Positive Attitude.
+        Supreme Communication Skills.
+        Great at Time and Task Management.
+        Quick Learning Ability.
+        Deep and Broad Technical Experience.
+        A Good Team Player.
+        High-End User Focus.
+    </string>
+    <string name="weakness">
+        I focus too much on the details.
+        I have a hard time letting go of a project.
+        I have trouble saying “no.”
+        I get impatient when projects run beyond the deadline.
+        I have trouble asking for help.
+    </string>
+    <string name="skills">
+        Computer Programming / Coding.
+        Logical Thinking and Problem-solving.
+        Developing Your “Soft Skills”.
+        Patience and Attention to Detail.
+    </string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="title_activity_administrator">AdministratorActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

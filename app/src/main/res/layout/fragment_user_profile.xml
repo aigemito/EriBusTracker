@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.UserProfileActivity"
+    tools:context=".fragment.userProfileFragment"
     android:background="@color/md_grey_100">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
-
-    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -49,6 +35,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/amanuel"
                     tools:srcCompat="@drawable/baseline_image_black_24" />
 
                 <ImageView
@@ -56,11 +43,12 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="fitXY"
+                    android:src="@drawable/amanuel"
                     app:layout_constraintBottom_toBottomOf="@+id/coverUserImageView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/black_alpha_50" />
+                    app:srcCompat="@drawable/amanuel" />
 
                 <TextView
                     android:id="@+id/nameTextView"
@@ -254,7 +242,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/nameTextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:srcCompat="@drawable/baseline_image_black_24" />
+                    tools:srcCompat="@drawable/amanuel" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline3"
@@ -303,6 +291,7 @@
                             android:layout_height="20dp"
                             android:layout_marginStart="24dp"
                             android:contentDescription="No Content"
+                            android:src="@drawable/amanuel"
                             android:tint="@color/md_grey_600"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="@+id/textView74"
@@ -589,5 +578,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/baseline_profile_edit_pen_24" />
 
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>
