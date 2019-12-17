@@ -22,6 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/editImageView"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deleteUserImageView"
+                app:srcCompat="@drawable/baseline_edittext_grey_24" />
+
             <TextView
                 android:id="@+id/attributeTitleTextView"
                 android:layout_width="0dp"
@@ -89,7 +99,7 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/md_grey_600"
                 android:textSize="@dimen/font_title_size"
-                app:layout_constraintEnd_toStartOf="@+id/deleteImageView"
+                app:layout_constraintEnd_toStartOf="@+id/deleteUserImageView"
                 app:layout_constraintStart_toEndOf="@+id/ivUserProfile"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -136,7 +146,7 @@
                 app:layout_constraintTop_toTopOf="@+id/subTotalTitleTextView" />
 
             <ImageView
-                android:id="@+id/deleteImageView"
+                android:id="@+id/deleteUserImageView"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginEnd="8dp"

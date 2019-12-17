@@ -130,7 +130,7 @@ class createAccount : AppCompatActivity() {
     private fun saveUserToFilebaseDataBase(profileImageUrl:String) {
         var uid=FirebaseAuth.getInstance().uid?:""
         val ref=FirebaseDatabase.getInstance().getReference("/Users/$uid")
-        ref.setValue(Users(uid,etUserName.text.toString(),etEmail.text.toString(),profileImageUrl,"Customer"))
+        ref.setValue(Users(etUserName.text.toString(),etEmail.text.toString(),profileImageUrl,"Customer"))
             .addOnSuccessListener {
                 //notify successuflly saved user to database
                 Toast.makeText(baseContext, "User data inserted.",

@@ -45,13 +45,6 @@ class LoginActivity : AppCompatActivity() {
         if(currentUser!=null) {
             if(currentUser.isEmailVerified){
                 provideRightActivity()
-//                if(userType=="Administrator"){
-//
-//                }else if(userType=="Driver"){
-//
-//                }else{
-//                    //customer
-//                }
 
                 when(userType){
                     "Administrator"->{
@@ -92,8 +85,8 @@ class LoginActivity : AppCompatActivity() {
                     //val users = dataSnapshot.getValue(Users::class.java)
                     // ...
                     userType=dataSnapshot.child("userType").getValue().toString()
-                    Toast.makeText(baseContext, "user type is $userType",
-                        Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(baseContext, "user type is $userType",
+//                        Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onCancelled(databaseError: DatabaseError) {

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.emito.eribus.R
@@ -19,6 +20,9 @@ class UserProfileAdapter(var context: Context,var users:ArrayList<Users>): Recyc
         var userEmail: TextView=itemView.findViewById<TextView>(R.id.tvEmail)
         var userType: TextView=itemView.findViewById<TextView>(R.id.tvUserType)
         var userPicture: ImageView =itemView.findViewById<ImageView>(R.id.ivUserProfile)
+        var editUserImageView:ImageView =itemView.findViewById<ImageView>(R.id.editUserImageView)
+        var deleteUserImageView:ImageView =itemView.findViewById<ImageView>(R.id.deleteUserImageView)
+
         var parentlayout: ConstraintLayout =itemView.findViewById<ConstraintLayout>(R.id.clUserProfileDetail)
     }
 
@@ -31,13 +35,21 @@ class UserProfileAdapter(var context: Context,var users:ArrayList<Users>): Recyc
         return users.count()
     }
 
-    override fun onBindViewHolder(holder: UserProfileAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        holder?.userName.text=users[position].userName
-        holder?.userEmail.text="Price : $" + users[position].Email
-        holder?.userType.text="Color : " + users[position].UserType
+        holder?.userName.text=users[position].FullName
+        holder?.userEmail.text= users[position].Email
+        holder?.userType.text= users[position].UserType
+
        // holder?.userPicture.setImageResource(users[position].Picture.toInt())
+        holder.deleteUserImageView.setOnClickListener{
+            Toast.makeText(context,"Delete Clicked",Toast.LENGTH_LONG).show()
 
+        }
+        holder.editUserImageView.setOnClickListener{
+            Toast.makeText(context,"Edit Clicked",Toast.LENGTH_LONG).show()
+
+        }
 //        holder.parentlayout.setOnClickListener{
 //            val intent=Intent(context, UserDetailListActivity::class.java)
 //            var user=Users(users[position].userName,users[position].FullName,users.,Users[position].Price,

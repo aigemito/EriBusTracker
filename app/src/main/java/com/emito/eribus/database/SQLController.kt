@@ -9,7 +9,7 @@ import java.lang.Exception
 
 class SQLController(c: Context){
     lateinit var dbHelper: DBHelper
-    lateinit var ourContext: Context
+    var ourContext: Context
     lateinit var database:SQLiteDatabase
     init {
         ourContext=c
@@ -26,7 +26,7 @@ class SQLController(c: Context){
     fun InsertUser(user: Users):Boolean{
         try {
             val cv=ContentValues()
-            cv.put(DBHelper.USER_COLUMN_USERNAME,user.userName)
+            cv.put(DBHelper.USER_COLUMN_USERNAME,user.FullName)
             cv.put(DBHelper.USER_COLUMN_EMAIL,user.Email)
             //cv.put(DBHelper.USER_COLUMN_PASSWORD,user.password)
             database.insert(DBHelper.USER_TABLE,null,cv)
@@ -44,11 +44,11 @@ class SQLController(c: Context){
     // Update the record in the Table
     fun updateUser(user:Users):Int {
         val cvUpdate = ContentValues()
-        cvUpdate.put(DBHelper.USER_COLUMN_USERNAME, user.userName)
+        cvUpdate.put(DBHelper.USER_COLUMN_USERNAME, user.FullName)
         cvUpdate.put(DBHelper.USER_COLUMN_EMAIL, user.Email)
         //cvUpdate.put(DBHelper.USER_COLUMN_PASSWORD, user.password)
         val i = database.update(DBHelper.USER_TABLE, cvUpdate,
-            DBHelper.USER_COLUMN_USERNAME + " = " + user.userName, null)
+            DBHelper.USER_COLUMN_USERNAME + " = " + user.FullName, null)
         return i
     }
     // Deleting record data from table by NAME
