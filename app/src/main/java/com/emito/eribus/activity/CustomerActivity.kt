@@ -322,9 +322,5 @@ class CustomerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         dialog.window!!.attributes = lp
     }
 
-    fun onCreateNewAccount(view: View) {
-        showCustomDialog()
-    }
-
 
 }

@@ -9,7 +9,7 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/feature_menu_general_menu_4_view_layout"
+        layout="@layout/feature_administrator_menu_general_menu_4_view_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

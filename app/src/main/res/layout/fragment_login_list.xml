@@ -46,7 +46,7 @@
 
                 <Button
 
-                    android:id="@+id/createNewAccount"
+                    android:id="@+id/btnCreateNewUser"
                     android:layout_width="0dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="16dp"
@@ -55,7 +55,7 @@
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/button_round_corner"
                     android:text="Create Account"
-                    android:onClick="onCreateNewAccount"
+                    android:onClick="onClickCreate"
                     android:textColor="@color/md_white_1000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
 
 
                 <TextView
-                    android:id="@+id/totalUsersTextView"
+                    android:id="@+id/totalroutesTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"

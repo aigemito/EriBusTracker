@@ -322,9 +322,5 @@ class DriverActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         dialog.window!!.attributes = lp
     }
 
-    fun onCreateNewAccount(view: View) {
-        showCustomDialog()
-    }
-
 
 }

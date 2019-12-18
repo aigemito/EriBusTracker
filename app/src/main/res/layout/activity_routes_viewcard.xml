@@ -12,9 +12,9 @@
     app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clRoute"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/clUserProfileDetail">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/editUserImageView"
@@ -28,122 +28,83 @@
 
         <TextView
             android:id="@+id/attributeTitleTextView"
-            android:layout_width="0dp"
+            android:layout_width="45dp"
             android:layout_height="19dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/roboto_light"
-            android:text="Remark :"
+            android:text="To:"
             android:textAlignment="viewStart"
             android:textColor="@color/md_grey_800"
             android:textSize="@dimen/font_body_s_size"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/ivUserProfile"
-            app:layout_constraintTop_toBottomOf="@+id/subTotalTitleTextView" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/priceTitleTextView" />
 
         <TextView
             android:id="@+id/tvRouteTo"
-            android:layout_width="0dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="194dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/roboto_light"
-            android:text="Provide here if you have remark"
+            android:text="Fairfield"
             android:textAlignment="viewStart"
             android:textColor="@color/md_grey_800"
             android:textSize="@dimen/font_body_s_size"
             app:layout_constraintStart_toEndOf="@+id/attributeTitleTextView"
-            app:layout_constraintTop_toTopOf="@+id/attributeTitleTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/tvRouteFrom" />
 
         <TextView
-            android:id="@+id/subTotalTitleTextView"
-            android:layout_width="0dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="8dp"
+            android:id="@+id/tvRouteCode"
+            android:layout_width="351dp"
+            android:layout_height="23dp"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/roboto_light"
-            android:text="UserType:"
-            android:textAlignment="viewStart"
-            android:textColor="@color/md_grey_800"
-            android:textSize="@dimen/font_body_s_size"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/ivUserProfile"
-            app:layout_constraintTop_toBottomOf="@+id/priceTitleTextView" />
-
-        <ImageView
-            android:id="@+id/ivUserProfile"
-            android:layout_width="120dp"
-            android:layout_height="0dp"
-            android:background="@drawable/layout_left_rounded_rectangle"
-            android:contentDescription="TODO"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/baseline_image_black_24" />
-
-        <TextView
-            android:id="@+id/tvUserName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_medium"
-            android:text="Name"
+            android:text="RouteCode : CODE101"
             android:textAlignment="viewStart"
             android:textColor="@color/md_grey_600"
             android:textSize="@dimen/font_title_size"
             app:layout_constraintEnd_toStartOf="@+id/deleteUserImageView"
-            app:layout_constraintStart_toEndOf="@+id/ivUserProfile"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/priceTitleTextView"
             android:layout_width="0dp"
             android:layout_height="19dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto_light"
-            android:text="Email: "
+            android:text="From:"
             android:textAlignment="viewStart"
             android:textColor="@color/md_grey_800"
             android:textSize="@dimen/font_body_s_size"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/ivUserProfile"
-            app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRouteCode" />
 
         <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:id="@+id/tvRouteFrom"
+            android:layout_width="193dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto_light"
-            android:text="aigemito.2006@gmail.com"
+            android:text="Chicago"
             android:textAlignment="viewStart"
             android:textColor="@color/md_grey_800"
             android:textSize="@dimen/font_body_size"
             app:layout_constraintStart_toEndOf="@+id/priceTitleTextView"
-            app:layout_constraintTop_toTopOf="@+id/priceTitleTextView" />
-
-        <TextView
-            android:id="@+id/tvUserType"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/roboto_light"
-            android:text="Administrator"
-            android:textAlignment="viewStart"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/font_body_size"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/subTotalTitleTextView"
-            app:layout_constraintTop_toTopOf="@+id/subTotalTitleTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/tvRouteCode" />
 
         <ImageView
             android:id="@+id/deleteUserImageView"
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_delete_black_24" />

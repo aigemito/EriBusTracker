@@ -15,16 +15,19 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.emito.eribus.LoginActivity
 import com.emito.eribus.R
-import com.emito.eribus.fragment.AboutFragment
-import com.emito.eribus.fragment.LoginListFragment
-import com.emito.eribus.fragment.userProfileFragment
+import com.emito.eribus.fragment.*
+import com.emito.eribus.model.Bus
+import com.emito.eribus.model.Routes
 import com.emito.eribus.model.Users
 import com.emito.eribus.utils.Utils
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.bus_dialog_event.*
 import kotlinx.android.synthetic.main.feature_menu_general_menu_4_activity.*
+import kotlinx.android.synthetic.main.fragment_login_list.*
+import kotlinx.android.synthetic.main.fragment_routes_list.*
 
 class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
@@ -88,11 +91,26 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 Log.d("error:", "Error! Can't Replace")
             }
         } else if (id == R.id.nav_Drivers) {
-            Toast.makeText(this, "Clicked Drivers.", Toast.LENGTH_SHORT).show()
+            try{
+                this.supportFragmentManager.beginTransaction().replace(R.id.content_frame,LoginListFragment())
+                    .commitAllowingStateLoss()
+            }catch (e:Exception){
+                Log.d("error:", "Error! Can't Replace")
+            }
         } else if (id == R.id.nav_Bus) {
-            Toast.makeText(this, "Clicked Buses.", Toast.LENGTH_SHORT).show()
+            try{
+                this.supportFragmentManager.beginTransaction().replace(R.id.content_frame,BusListFragment())
+                    .commitAllowingStateLoss()
+            }catch (e:Exception){
+                Log.d("error:", "Error! Can't Replace")
+            }
         } else if (id == R.id.nav_route) {
-            Toast.makeText(this, "Clicked Routes.", Toast.LENGTH_SHORT).show()
+            try{
+                this.supportFragmentManager.beginTransaction().replace(R.id.content_frame,RouteListFragment())
+                    .commitAllowingStateLoss()
+            }catch (e:Exception){
+                Log.d("error:", "Error! Can't Replace")
+            }
         } else if (id == R.id.nav_map) {
            val intent=Intent(this,RouteDetailActivity::class.java)
             startActivity(intent)
@@ -225,6 +243,8 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         }catch (e:Exception){
             Log.d("error:", "Error! Can't Replace")
         }
+
+
     }
 
     private fun initToolbar() {
@@ -261,7 +281,7 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
 
     }
 
-    private fun showCustomDialog() {
+    private fun showNewAccountCustomDialog() {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE) // before
         dialog.setContentView(R.layout.user_dialog_event)
@@ -334,10 +354,85 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         dialog.show()
         dialog.window!!.attributes = lp
     }
+    private fun showNewRouteCustomDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE) // before
+        dialog.setContentView(R.layout.route_dialog_event)
+        dialog.setCancelable(true)
+        val lp = WindowManager.LayoutParams()
+        lp.copyFrom(dialog.window!!.attributes)
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+        val et_RouteCode = dialog.findViewById<View>(R.id.etRouteCode) as EditText
+        val et_RouteFrom = dialog.findViewById<View>(R.id.etRouteFrom) as EditText
+        val et_RouteTo = dialog.findViewById<View>(R.id.etRouteTo) as EditText
 
-    fun onCreateNewAccount(view: View) {
-        showCustomDialog()
+        (dialog.findViewById<View>(R.id.btnrouteCreateCancel) as Button).setOnClickListener { dialog.dismiss() }
+        (dialog.findViewById<View>(R.id.btnrouteCreateSubmit) as Button).setOnClickListener {
+            val ref= FirebaseDatabase.getInstance().getReference("Routes")
+            val routeID=ref.push().key
+            if (routeID != null) {
+                ref.child(routeID).setValue(Routes(routeID.toString(),et_RouteCode.text.toString(),et_RouteFrom.text.toString(),
+                    et_RouteTo.text.toString(),"","","",""))
+                    .addOnSuccessListener {
+                        //notify successuflly saved user to database
+                        Toast.makeText(baseContext, "Routes data inserted.",
+                            Toast.LENGTH_SHORT).show()
+                    }
+            }
+
+            dialog.dismiss()
+            //Toast.makeText(this, "Data Successfully saved.", Toast.LENGTH_LONG).show()
+        }
+        dialog.show()
+        dialog.window!!.attributes = lp
     }
+    private fun showNewBusCustomDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE) // before
+        dialog.setContentView(R.layout.bus_dialog_event)
+        dialog.setCancelable(true)
+        val lp = WindowManager.LayoutParams()
+        lp.copyFrom(dialog.window!!.attributes)
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+        val et_plateNumber = dialog.findViewById<View>(R.id.etPlateNumber) as EditText
+        val et_busModel = dialog.findViewById<View>(R.id.etBusModel) as EditText
+        val et_numberOfSits= dialog.findViewById<View>(R.id.etNumberOfSits) as EditText
 
+        (dialog.findViewById<View>(R.id.btnrouteCreateCancel) as Button).setOnClickListener { dialog.dismiss() }
+        (dialog.findViewById<View>(R.id.btnrouteCreateSubmit) as Button).setOnClickListener {
+            val ref= FirebaseDatabase.getInstance().getReference("Bus")
+            val routeID=ref.push().key
+            if (routeID != null) {
+                ref.child(routeID).setValue(
+                    Bus(routeID.toString(),et_plateNumber.text.toString(),Integer.parseInt(et_numberOfSits.text.toString()),
+                    et_busModel.text.toString())
+                )
+                    .addOnSuccessListener {
+                        //notify successuflly saved user to database
+                        Toast.makeText(baseContext, "Routes data inserted.",
+                            Toast.LENGTH_SHORT).show()
+                    }
+            }
+
+            dialog.dismiss()
+            //Toast.makeText(this, "Data Successfully saved.", Toast.LENGTH_LONG).show()
+        }
+        dialog.show()
+        dialog.window!!.attributes = lp
+    }
+    public fun onClickCreate(view: View) {
+        when(view.id){
+        R.id.btnCreateNewUser->{
+            showNewAccountCustomDialog()
+        }
+        R.id.btnCreateRoute->{
+            showNewRouteCustomDialog()
+        }
+            R.id.btnCreateBus->{
+                showNewBusCustomDialog()
+            }
+    }}
 
 }

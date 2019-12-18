@@ -12,6 +12,7 @@ import com.emito.eribus.R
 import com.emito.eribus.adapter.UserProfileAdapter
 import com.emito.eribus.model.Users
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_users_list.*
 import kotlinx.android.synthetic.main.user_dialog_event.*
 import kotlinx.android.synthetic.main.user_dialog_event.view.*
 import java.util.*
@@ -62,10 +63,10 @@ class LoginListFragment : Fragment() {
                 madr = UserProfileAdapter(userView.context, usersList)
                 r1?.adapter = madr
 
-                //for the total Users
-                var totalUsersTextView: TextView =
-                    userView.findViewById<TextView>(R.id.totalUsersTextView)
-                totalUsersTextView.text = madr!!.itemCount.toString()
+//                //for the total Users
+//                var totalUsersTextView: TextView =
+//                    userView.findViewById<TextView>(R.id.totalUsersTextView)
+                //totalUsersTextView.text = madr!!.itemCount.toString()
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

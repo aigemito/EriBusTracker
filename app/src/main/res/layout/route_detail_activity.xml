@@ -48,7 +48,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/subTotalTitleTextView" />
 
             <TextView
-                android:id="@+id/tvRemark"
+                android:id="@+id/tvRouteTo"
                 android:layout_width="0dp"
                 android:layout_height="19dp"
                 android:layout_marginStart="8dp"
