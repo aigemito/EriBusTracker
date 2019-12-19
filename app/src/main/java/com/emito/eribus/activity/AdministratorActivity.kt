@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.RecyclerView
 import com.emito.eribus.LoginActivity
 import com.emito.eribus.R
 import com.emito.eribus.fragment.*
@@ -33,7 +34,7 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
 
     internal lateinit var toolbar: Toolbar
     internal lateinit var drawerLinearLayout: LinearLayout
-
+    lateinit var routeObj:RouteListFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_administrator)
@@ -106,7 +107,8 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
             }
         } else if (id == R.id.nav_route) {
             try{
-                this.supportFragmentManager.beginTransaction().replace(R.id.content_frame,RouteListFragment())
+                routeObj= RouteListFragment()
+                this.supportFragmentManager.beginTransaction().replace(R.id.content_frame,routeObj)
                     .commitAllowingStateLoss()
             }catch (e:Exception){
                 Log.d("error:", "Error! Can't Replace")
@@ -378,6 +380,10 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                         //notify successuflly saved user to database
                         Toast.makeText(baseContext, "Routes data inserted.",
                             Toast.LENGTH_SHORT).show()
+//                       val r1 =findViewById<RecyclerView>(R.id.routeListRecyclerView)
+//                        r1?.adapter?.notifyDataSetChanged()
+                        routeObj.loadData()
+
                     }
             }
 
@@ -413,6 +419,7 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                         //notify successuflly saved user to database
                         Toast.makeText(baseContext, "Routes data inserted.",
                             Toast.LENGTH_SHORT).show()
+
                     }
             }
 

@@ -16,6 +16,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/btnAddBus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/roboto"
+            android:text="Add Bus"
+            android:textAlignment="viewStart"
+            android:textColor="@color/md_blue_500"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editUserImageView" />
+
+        <TextView
+            android:id="@+id/btnAddDriver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="Add Driver"
+            android:textAlignment="viewStart"
+            android:textColor="@color/md_blue_500"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnAddBus"
+            app:layout_constraintTop_toBottomOf="@+id/orderStatusTextView2" />
+
         <ImageView
             android:id="@+id/editUserImageView"
             android:layout_width="22dp"
@@ -65,6 +95,7 @@
             android:text="RouteCode : CODE101"
             android:textAlignment="viewStart"
             android:textColor="@color/md_grey_600"
+            android:textDirection="ltr"
             android:textSize="@dimen/font_title_size"
             app:layout_constraintEnd_toStartOf="@+id/deleteUserImageView"
             app:layout_constraintStart_toStartOf="parent"

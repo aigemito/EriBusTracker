@@ -13,28 +13,54 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.emito.eribus.LoginActivity
 import com.emito.eribus.R
-import com.emito.eribus.fragment.AboutFragment
-import com.emito.eribus.fragment.LoginListFragment
-import com.emito.eribus.fragment.userProfileFragment
+import com.emito.eribus.fragment.*
 import com.emito.eribus.model.Users
 import com.emito.eribus.utils.Utils
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.feature_customer_menu_general_menu_4_view_layout.*
 import kotlinx.android.synthetic.main.feature_menu_general_menu_4_activity.*
 
 class CustomerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
     internal lateinit var toolbar: Toolbar
     internal lateinit var drawerLinearLayout: LinearLayout
-
+    lateinit var fragmentManager: FragmentManager
+    lateinit var fragmentTransaction: FragmentTransaction
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_customer)
+        fragmentManager = supportFragmentManager
+        fragmentTransaction = fragmentManager.beginTransaction()
+        var availableRoutesFragment = AvailableRoutesFragment()
+        fragmentTransaction.add(R.id.customerFrame, availableRoutesFragment)
+        fragmentTransaction.commit()
 
+        customerBottomNavigationView.setOnNavigationItemSelectedListener { item: MenuItem ->
+
+            when (item.itemId) {
+                R.id.availableRoutesMenue ->{
+                    fragmentTransaction = fragmentManager.beginTransaction()
+                    var availableRoutesFragment = AvailableRoutesFragment()
+                    fragmentTransaction.replace(R.id.customerFrame, availableRoutesFragment)
+                    fragmentTransaction.commit()
+                }
+
+                R.id.bookingHistoryMenue -> {
+                    fragmentTransaction = fragmentManager.beginTransaction()
+                    var bookingHistoryFragment = BookingHistoryFragment()
+                    fragmentTransaction.replace(R.id.customerFrame, bookingHistoryFragment)
+                    fragmentTransaction . commit ()
+                }
+            }
+            false
+        }
         initUI()
     }
 
@@ -320,6 +346,10 @@ class CustomerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         }
         dialog.show()
         dialog.window!!.attributes = lp
+    }
+
+    fun onCreateNewAccount(view: View) {
+        showCustomDialog()
     }
 
 

@@ -40,13 +40,13 @@
         </FrameLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
+            android:id="@+id/customerBottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@drawable/bottomappbarcustomcolor"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/menu_driver_navigation_view"
+            app:menu="@menu/menu_customer_navigation_view"
             app:labelVisibilityMode="labeled"
             app:itemIconTint="@color/custome_color_bottom_navigation_check_item_selector"
             app:itemTextColor="@color/custome_color_bottom_navigation_check_item_selector"/>

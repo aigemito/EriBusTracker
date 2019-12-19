@@ -8,7 +8,15 @@
     tools:context=".activity.CustomerActivity"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
+    <FrameLayout
+        android:id="@+id/customerFrame"
+        android:layout_width="409dp"
+        android:layout_height="335dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:ignore="MissingConstraints">
 
+    </FrameLayout>
     <include
         layout="@layout/feature_customer_menu_general_menu_4_view_layout"
         android:layout_width="match_parent"

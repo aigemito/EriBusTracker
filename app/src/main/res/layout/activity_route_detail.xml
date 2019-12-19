@@ -4,7 +4,173 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.RouteDetailActivity">
+    tools:context=".activity.RouteDetailActivity"
+    android:orientation="vertical">
+
+
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/simpleTableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:stretchColumns="1"> <!-- stretch the second column of the layout-->
+
+        <!-- first row of the table layout-->
+        <TableRow
+
+            android:id="@+id/firstRow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+
+                android:id="@+id/simplTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#b0b0b0"
+                android:padding="18dip"
+                android:text="Text 1"
+                android:textColor="#000"
+                android:textSize="12dp" />
+
+            <TextView
+
+                android:id="@+id/simpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FF0000"
+                android:padding="18dip"
+                android:text="Text 2"
+                android:textColor="#000"
+                android:textSize="14dp" />
+
+        </TableRow>
+        <TableRow
+
+            android:id="@+id/firsRow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+
+                android:id="@+id/simlTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#b0b0b0"
+                android:padding="18dip"
+                android:text="Text 1"
+                android:textColor="#000"
+                android:textSize="12dp" />
+
+            <TextView
+
+                android:id="@+id/simpTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FF0000"
+                android:padding="18dip"
+                android:text="Text 2"
+                android:textColor="#000"
+                android:textSize="14dp" />
+
+        </TableRow>
+        <TableRow
+
+            android:id="@+id/fistRow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+
+                android:id="@+id/simplTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#b0b0b0"
+                android:padding="18dip"
+                android:text="Text 1"
+                android:textColor="#000"
+                android:textSize="12dp" />
+
+            <TextView
+
+                android:id="@+id/sipleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FF0000"
+                android:padding="18dip"
+                android:text="Text 2"
+                android:textColor="#000"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+
+            android:id="@+id/stRow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+
+                android:id="@+id/smplTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#b0b0b0"
+                android:padding="18dip"
+                android:text="Text 1"
+                android:textColor="#000"
+                android:textSize="12dp" />
+
+            <TextView
+
+                android:id="@+id/sipleTextVw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FF0000"
+                android:padding="18dip"
+                android:text="Text 2"
+                android:textColor="#000"
+                android:textSize="14dp" />
+
+        </TableRow>
+        <TableRow
+
+            android:id="@+id/fstRow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+
+                android:id="@+id/siplTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#b0b0b0"
+                android:padding="18dip"
+                android:text="Text 1"
+                android:textColor="#000"
+                android:textSize="12dp" />
+
+            <TextView
+
+                android:id="@+id/sileTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FF0000"
+                android:padding="18dip"
+                android:text="Text 2"
+                android:textColor="#000"
+                android:textSize="14dp" />
+
+        </TableRow>
+    </TableLayout>
+
+
 
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,14 +179,16 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8" />
+        android:layout_weight="0.6"
+        />
 
 
-    <Button
-        android:id="@+id/btnGetDirection"
-        android:text="Get Direction"
-        android:layout_height="0dp"
-        android:layout_weight="0.2"
-        android:layout_width="match_parent"
-        android:background="?attr/selectableItemBackground" />
+    <!--    <Button-->
+    <!--        android:id="@+id/btnGetDirection"-->
+    <!--        android:text="Get Direction"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_weight="0.1"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:background="?attr/selectableItemBackground" />-->
+
 </LinearLayout>

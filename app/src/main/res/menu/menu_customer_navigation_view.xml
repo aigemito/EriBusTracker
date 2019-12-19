@@ -3,29 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <item
-        android:id="@+id/schedules"
+        android:id="@+id/availableRoutesMenue"
         android:icon="@drawable/baseline_chat_bubble_outline_white_24"
-        android:title="Schedules"
+        android:title="availableRoutes"
         app:showAsAction="always|withText"
 
         />
     <item
-        android:id="@+id/calls"
+        android:id="@+id/bookingHistoryMenue"
         android:icon="@drawable/baseline_phone"
-        android:title="Call"
+        android:title="BookingHistory"
         app:showAsAction="always|withText"
 
         />
     <item
-        android:id="@+id/contacts"
+        android:id="@+id/drivercontacts"
         android:icon="@drawable/baseline_people_black_24"
-        android:title="Contacts"
+        android:title="drivercontacts"
         app:showAsAction="always|withText"
 
         />
 
     <item
-        android:id="@+id/more"
+        android:id="@+id/drivermore"
         android:icon="@drawable/baseline_more_horizontal_24"
         android:title="More"
         app:showAsAction="always|withText"

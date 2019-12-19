@@ -7,13 +7,11 @@ import android.widget.Button
 import com.emito.eribus.R
 import com.emito.eribus.directionhelpers.FetchURL
 import com.emito.eribus.directionhelpers.TaskLoadedCallback
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.Polyline
-import com.google.android.gms.maps.model.PolylineOptions
+import com.google.android.gms.maps.model.*
 
 class RouteDetailActivity : AppCompatActivity() , OnMapReadyCallback, TaskLoadedCallback {
     lateinit var map: GoogleMap
@@ -21,40 +19,44 @@ class RouteDetailActivity : AppCompatActivity() , OnMapReadyCallback, TaskLoaded
     lateinit var place1: MarkerOptions
     lateinit var place2: MarkerOptions
     lateinit var currentPolyline: Polyline
+   lateinit var  cameraPosition:LatLng
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_route_detail)
+
         setContentView(R.layout.activity_route_detail)
-        btnGetDirection = findViewById(R.id.btnGetDirection)
-//        var mapFragment:MapFragment = fragmentManager.findFragmentById(R.id.mapNearBy) as MapFragment
-//        val mapFragment = supportFragmentManager.findFragmentById(R.id.mapNearBy as SupportMapFragment
-//        mapFragment.getMapAsync(this)
-//                    mapFragment.getMapAsync(this)
-
-//        (activity.supportFragmentManager.findFragmentById(R.id.mapNearBy) as SupportMapFragment?)?.let {
-////            it.getMapAsync(this)
-////        }
-
+        //btnGetDirection = findViewById(R.id.btnGetDirection)
         val mapFragment = supportFragmentManager.findFragmentById(R.id.mapNearBy) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
 
-        place1 = MarkerOptions().position(LatLng(37.778008, -122.431272)).title("Location 1");
-        place2 = MarkerOptions().position(LatLng(41.921673, -93.312271)).title("Location 2");
+        var incomingIntent = getIntent()
+
+        var deptLat = incomingIntent.getDoubleExtra("deptLat", 0.0)
+        var deptLong = incomingIntent.getDoubleExtra("deptLong", 0.0)
+        var destLat = incomingIntent.getDoubleExtra("destLat", 0.0)
+        var destLong = incomingIntent.getDoubleExtra("destLong", 0.0)
+
+        place1 = MarkerOptions().position(LatLng(deptLat, deptLong)).title("Location 1").icon(
+            BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+        place2 = MarkerOptions().position(LatLng(destLat, destLong)).title("Location 2");
 
         var url = getUrl(place1.position, place2.position, "driving")
         FetchURL(this).execute(url,"driving")
+
+        cameraPosition=LatLng(deptLat,deptLong)
     }
 
-//    override fun onMapReady(p0: GoogleMap) {
-//        map = p0
-//    }
 
 
 
     override fun onMapReady(googleMap: GoogleMap ) {
         map = googleMap;
+        map.isMyLocationEnabled=true
         Log.d("mylog", "Added Markers");
         map.addMarker(place1);
         map.addMarker(place2);
+
+        map.moveCamera(CameraUpdateFactory.newLatLng(cameraPosition))
     }
 
 
@@ -70,19 +72,9 @@ class RouteDetailActivity : AppCompatActivity() , OnMapReadyCallback, TaskLoaded
         // Output format
         var output:String = "json";
         // Building the url to the web service
-        var url:String = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(
-            R.string.google_maps_key)
+        var url:String = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(R.string.google_maps_key)
         return url;
     }
-
-//    override fun onTaskDone(vararg values: Any?) {
-//        if(currentPolyline != null){
-//
-//            currentPolyline.remove()
-//        }
-//        currentPolyline = map.addPolyline(values[0] as PolylineOptions?)
-//    }
-
 
     override fun onTaskDone(vararg values: Any?) {
         if (currentPolyline != null)

@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.emito.eribus.LoginActivity
 import com.emito.eribus.R
 import com.emito.eribus.fragment.AboutFragment
+import com.emito.eribus.fragment.DriverSchedulesFragment
 import com.emito.eribus.fragment.LoginListFragment
 import com.emito.eribus.fragment.userProfileFragment
 import com.emito.eribus.model.Users
@@ -36,6 +37,13 @@ class DriverActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         setContentView(R.layout.activity_driver)
 
         initUI()
+
+        try{
+            this.supportFragmentManager.beginTransaction().add(R.id.driver_content_frame,DriverSchedulesFragment())
+                .commitAllowingStateLoss()
+        }catch (e:Exception){
+            Log.d("error:", "Error! Can't Replace")
+        }
     }
 
     override fun onBackPressed() {

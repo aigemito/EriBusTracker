@@ -9,7 +9,6 @@ import android.provider.MediaStore
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
-import com.emito.eribus.database.SQLController
 import com.emito.eribus.model.Users
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth

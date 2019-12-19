@@ -38,12 +38,12 @@ class RouteListFragment : Fragment() {
         layoutManager = LinearLayoutManager(routeView.context)
         r1?.layoutManager = layoutManager
 
-            loadData()
+        loadData()
 
         return routeView
     }
 
-    private fun loadData() {
+    public fun loadData() {
         reference = FirebaseDatabase.getInstance().getReference("Routes")
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -70,6 +70,8 @@ class RouteListFragment : Fragment() {
                 var totalroutesTextView: TextView =
                     routeView.findViewById<TextView>(R.id.totalroutesTextView)
                 totalroutesTextView.text = madr!!.itemCount.toString()
+
+
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
