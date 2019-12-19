@@ -45,7 +45,7 @@ class BusListFragment : Fragment() {
         return routeView
     }
 
-    private fun loadData() {
+    public fun loadData() {
         reference = FirebaseDatabase.getInstance().getReference("Bus")
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {

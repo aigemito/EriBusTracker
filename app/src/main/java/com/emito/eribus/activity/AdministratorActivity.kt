@@ -37,6 +37,8 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
     internal lateinit var toolbar: Toolbar
     internal lateinit var drawerLinearLayout: LinearLayout
     lateinit var routeObj:RouteListFragment
+    lateinit var userObj:LoginListFragment
+    lateinit var busObj:BusListFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_administrator)
@@ -96,14 +98,16 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
             }
         } else if (id == R.id.nav_Drivers) {
             try{
-                this.supportFragmentManager.beginTransaction().replace(R.id.content_frame,LoginListFragment())
+                userObj= LoginListFragment()
+                this.supportFragmentManager.beginTransaction().replace(R.id.content_frame,userObj)
                     .commitAllowingStateLoss()
             }catch (e:Exception){
                 Log.d("error:", "Error! Can't Replace")
             }
         } else if (id == R.id.nav_Bus) {
             try{
-                this.supportFragmentManager.beginTransaction().replace(R.id.content_frame,BusListFragment())
+                busObj= BusListFragment()
+                this.supportFragmentManager.beginTransaction().replace(R.id.content_frame,busObj)
                     .commitAllowingStateLoss()
             }catch (e:Exception){
                 Log.d("error:", "Error! Can't Replace")
@@ -304,7 +308,7 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
             auth.createUserWithEmailAndPassword(et_Email.text.toString(), et_Password.text.toString())
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-
+                        userObj.loadData()
                     } else {
                         // If sign in fails, display a message to the user.
                         if(task.exception is FirebaseAuthUserCollisionException){
@@ -396,9 +400,9 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 )
                     .addOnSuccessListener {
                         //notify successuflly saved user to database
-                        Toast.makeText(baseContext, "Routes data inserted.",
+                        Toast.makeText(baseContext, "New Bus Inserted Successfully.",
                             Toast.LENGTH_SHORT).show()
-
+                        busObj.loadData()
                     }
             }
 

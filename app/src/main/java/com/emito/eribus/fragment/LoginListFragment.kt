@@ -39,6 +39,11 @@ class LoginListFragment : Fragment() {
         r1 = userView.findViewById<RecyclerView>(R.id.userListRecyclerView)
         layoutManager = LinearLayoutManager(userView.context)
         r1?.layoutManager = layoutManager
+        loadData()
+        return userView
+    }
+
+    public fun loadData(){
 
 //        reference=FirebaseDatabase.getInstance().reference.child("Users")
         reference = FirebaseDatabase.getInstance().getReference("Users")
@@ -78,8 +83,6 @@ class LoginListFragment : Fragment() {
 
         reference.addListenerForSingleValueEvent(postListener)
 
-        return userView
     }
-
 
 }

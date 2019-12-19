@@ -40,9 +40,12 @@ class RouteDetailActivity : AppCompatActivity() , OnMapReadyCallback, TaskLoaded
         var destLat = incomingIntent.getDoubleExtra("destLat", 0.0)
         var destLong = incomingIntent.getDoubleExtra("destLong", 0.0)
 
-        tvRouteCode.setText("$routeCode")
-        tvRouteFrom.setText(routeFrom.toString())
-        tvRouteTo.setText(routeTo.toString())
+        if(routeCode!=null){
+            tvRouteCode.setText("$routeCode")
+            tvRouteFrom.setText(routeFrom.toString())
+            tvRouteTo.setText(routeTo.toString())
+        }
+
         place1 = MarkerOptions().position(LatLng(deptLat, deptLong)).title("Location 1").icon(
             BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
         place2 = MarkerOptions().position(LatLng(destLat, destLong)).title("Location 2");
