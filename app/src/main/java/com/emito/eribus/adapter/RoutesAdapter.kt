@@ -133,7 +133,7 @@ class RoutesAdapter(var context: Context, var routes:ArrayList<Routes>): Recycle
         lp.width = WindowManager.LayoutParams.MATCH_PARENT
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT
         val driverSpinner = dialog.findViewById<Spinner>(R.id.driverSpinner) as Spinner
-        val ref= FirebaseDatabase.getInstance().getReference("Users").orderByChild("UserType")
+        val ref= FirebaseDatabase.getInstance().getReference("Users").orderByChild("userType")
             .equalTo("Driver")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) { // Is better to use a List, because you don't know the size

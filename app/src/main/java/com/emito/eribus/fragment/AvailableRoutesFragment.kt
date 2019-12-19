@@ -15,6 +15,11 @@ import android.widget.ListView
 import android.widget.Toast
 import com.emito.eribus.R
 import com.emito.eribus.activity.RouteDetailActivity
+import com.emito.eribus.utils.Auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.*
 
 /**
@@ -32,13 +37,55 @@ class AvailableRoutesFragment : Fragment() {
         // Inflate the layout for this fragment
         var rootView: View = inflater.inflate(R.layout.fragment_available_routes, container, false)
         listView = rootView.findViewById<ListView>(R.id.availableRoutes)
-        var routeList = arrayOf("Bob", "Alik", "Bob", "Alik", "Bob", "Alik","Bob", "Alik","Bob", "Alik","Bob", "Alik","Bob", "Alik")
-        val adapter = ArrayAdapter<String>(rootView.context, android.R.layout.simple_spinner_dropdown_item, routeList)
-        listView.adapter = adapter
+
+        val ref= FirebaseDatabase.getInstance().getReference("Routes")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) { // Is better to use a List, because you don't know the size
+                // of the iterator returned by dataSnapshot.getChildren() to
+                // initialize the array
+                val routeList: MutableList<String> =
+                    ArrayList()
+                for (plateSnapshot in dataSnapshot.children) {
+                    val routeCode =
+                        plateSnapshot.child("routeCode").getValue(
+                            String::class.java
+                        )!!
+                    val routeFrom =
+                        plateSnapshot.child("routefrom").getValue(
+                            String::class.java
+                        )!!
+                    val routeTo =
+                        plateSnapshot.child("routeTo").getValue(
+                            String::class.java
+                        )!!
+                    routeList.add("Route Code:$routeCode | From:$routeFrom | To:$routeTo")
+                }
+                adapter = ArrayAdapter<String>(rootView.context, android.R.layout.simple_spinner_dropdown_item, routeList)
+
+                listView.adapter = adapter
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })
         listView.onItemClickListener =
             AdapterView.OnItemClickListener { parent, view, position, id ->
-                val item = parent.getItemAtPosition(position).toString()
-                val intent = Intent(rootView.context, RouteDetailActivity::class.java)
+
+                val item = parent.getItemAtPosition(position).toString().split("|")
+                //Toast.makeText(context, item[0],Toast.LENGTH_LONG).show()
+                var intent = Intent(rootView.context, RouteDetailActivity::class.java)
+                var deptLat = 41.921673
+                var deptLong =  -93.312271
+                var destLat = 37.778008
+                var destLong = -122.431272
+
+                intent.putExtra("routeCode", item[0])
+                intent.putExtra("routeFrom", item[1])
+                intent.putExtra("routeTo", item[2])
+                intent.putExtra("deptLat", deptLat)
+                intent.putExtra("deptLong", deptLong)
+                intent.putExtra("destLat", destLat)
+                intent.putExtra("destLong", destLong)
+
                 startActivity(intent)
             }
         return rootView

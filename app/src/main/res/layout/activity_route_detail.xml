@@ -8,187 +8,129 @@
     android:orientation="vertical">
 
 
-
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/simpleTableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.4"
-        android:stretchColumns="1"> <!-- stretch the second column of the layout-->
-
-        <!-- first row of the table layout-->
-        <TableRow
-
-            android:id="@+id/firstRow"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <!-- first element of the row-->
-            <TextView
-
-                android:id="@+id/simplTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#b0b0b0"
-                android:padding="18dip"
-                android:text="Text 1"
-                android:textColor="#000"
-                android:textSize="12dp" />
-
-            <TextView
-
-                android:id="@+id/simpleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#FF0000"
-                android:padding="18dip"
-                android:text="Text 2"
-                android:textColor="#000"
-                android:textSize="14dp" />
-
-        </TableRow>
-        <TableRow
-
-            android:id="@+id/firsRow"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <!-- first element of the row-->
-            <TextView
-
-                android:id="@+id/simlTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#b0b0b0"
-                android:padding="18dip"
-                android:text="Text 1"
-                android:textColor="#000"
-                android:textSize="12dp" />
-
-            <TextView
-
-                android:id="@+id/simpTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#FF0000"
-                android:padding="18dip"
-                android:text="Text 2"
-                android:textColor="#000"
-                android:textSize="14dp" />
-
-        </TableRow>
-        <TableRow
-
-            android:id="@+id/fistRow"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <!-- first element of the row-->
-            <TextView
-
-                android:id="@+id/simplTxtView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#b0b0b0"
-                android:padding="18dip"
-                android:text="Text 1"
-                android:textColor="#000"
-                android:textSize="12dp" />
-
-            <TextView
-
-                android:id="@+id/sipleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#FF0000"
-                android:padding="18dip"
-                android:text="Text 2"
-                android:textColor="#000"
-                android:textSize="14dp" />
-
-        </TableRow>
-
-        <TableRow
-
-            android:id="@+id/stRow"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <!-- first element of the row-->
-            <TextView
-
-                android:id="@+id/smplTxtView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#b0b0b0"
-                android:padding="18dip"
-                android:text="Text 1"
-                android:textColor="#000"
-                android:textSize="12dp" />
-
-            <TextView
-
-                android:id="@+id/sipleTextVw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#FF0000"
-                android:padding="18dip"
-                android:text="Text 2"
-                android:textColor="#000"
-                android:textSize="14dp" />
-
-        </TableRow>
-        <TableRow
-
-            android:id="@+id/fstRow"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <!-- first element of the row-->
-            <TextView
-
-                android:id="@+id/siplTxtView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#b0b0b0"
-                android:padding="18dip"
-                android:text="Text 1"
-                android:textColor="#000"
-                android:textSize="12dp" />
-
-            <TextView
-
-                android:id="@+id/sileTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#FF0000"
-                android:padding="18dip"
-                android:text="Text 2"
-                android:textColor="#000"
-                android:textSize="14dp" />
-
-        </TableRow>
-    </TableLayout>
-
-
-
-
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <fragment
         android:id="@+id/mapNearBy"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
+        android:layout_height="471dp"
+        android:layout_weight="0.6" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.6"
-        />
+        android:layout_weight="0.6">
 
+        <ImageView
+            android:id="@+id/transNoImageView1"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:tint="@color/colorTextLight"
+            app:layout_constraintBottom_toBottomOf="@+id/lineView1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_map_pin_line_24" />
 
-    <!--    <Button-->
-    <!--        android:id="@+id/btnGetDirection"-->
-    <!--        android:text="Get Direction"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        android:layout_weight="0.1"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:background="?attr/selectableItemBackground" />-->
+        <TextView
+            android:id="@+id/tvRouteCode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Route Code: Route-10001"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorTextLight"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/transNoImageView1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/lineView1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/md_grey_400"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRouteCode" />
+
+        <TextView
+            android:id="@+id/amountTextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/roboto"
+            android:text="From:"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorTextLight"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lineView1" />
+
+        <TextView
+            android:id="@+id/tvRouteFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/roboto"
+            android:text="Chicago"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorTextLight"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lineView1" />
+
+        <TextView
+            android:id="@+id/statusTextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto"
+            android:text="To:"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorTextLight"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/amountTextView1" />
+
+        <TextView
+            android:id="@+id/tvRouteTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/roboto"
+            android:text="Texas"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorTextLight"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRouteFrom" />
+
+        <TextView
+            android:id="@+id/viewDetailsTextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/roboto"
+            android:text="Book Request"
+            android:textAlignment="viewStart"
+            android:textColor="@color/md_blue_500"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRouteTo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </LinearLayout>

@@ -12,6 +12,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import kotlinx.android.synthetic.main.activity_route_detail.*
 
 class RouteDetailActivity : AppCompatActivity() , OnMapReadyCallback, TaskLoadedCallback {
     lateinit var map: GoogleMap
@@ -31,11 +32,17 @@ class RouteDetailActivity : AppCompatActivity() , OnMapReadyCallback, TaskLoaded
 
         var incomingIntent = getIntent()
 
+        var routeCode = incomingIntent.getStringExtra("routeCode")
+        var routeFrom = incomingIntent.getStringExtra("routeFrom")
+        var routeTo = incomingIntent.getStringExtra("routeTo")
         var deptLat = incomingIntent.getDoubleExtra("deptLat", 0.0)
         var deptLong = incomingIntent.getDoubleExtra("deptLong", 0.0)
         var destLat = incomingIntent.getDoubleExtra("destLat", 0.0)
         var destLong = incomingIntent.getDoubleExtra("destLong", 0.0)
 
+        tvRouteCode.setText("$routeCode")
+        tvRouteFrom.setText(routeFrom.toString())
+        tvRouteTo.setText(routeTo.toString())
         place1 = MarkerOptions().position(LatLng(deptLat, deptLong)).title("Location 1").icon(
             BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
         place2 = MarkerOptions().position(LatLng(destLat, destLong)).title("Location 2");

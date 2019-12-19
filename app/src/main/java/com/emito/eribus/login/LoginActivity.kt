@@ -10,6 +10,7 @@ import com.emito.eribus.activity.AdministratorActivity
 import com.emito.eribus.activity.CustomerActivity
 import com.emito.eribus.activity.DriverActivity
 import com.emito.eribus.model.Users
+import com.emito.eribus.utils.Auth
 import com.emito.eribus.utils.ValueListenerAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_create_account.*
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.etPassword
 import kotlinx.android.synthetic.main.activity_login.loginButton
+import kotlinx.android.synthetic.main.feature_menu_general_menu_4_nav_header.*
 import kotlinx.android.synthetic.main.activity_create_account.etUserName as etUserName1
 
 class LoginActivity : AppCompatActivity() {
@@ -86,8 +88,8 @@ class LoginActivity : AppCompatActivity() {
             val postListener = object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     // Get Post object and use the values to update the UI
-                    //val users = dataSnapshot.getValue(Users::class.java)
-                    // ...
+                     Auth.currentUser = dataSnapshot.getValue(Users::class.java)!!
+
                     userType=dataSnapshot.child("userType").getValue().toString()
 //                    Toast.makeText(baseContext, "user type is $userType",
 //                        Toast.LENGTH_SHORT).show()

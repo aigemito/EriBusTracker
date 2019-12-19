@@ -20,11 +20,13 @@ import com.emito.eribus.fragment.DriverSchedulesFragment
 import com.emito.eribus.fragment.LoginListFragment
 import com.emito.eribus.fragment.userProfileFragment
 import com.emito.eribus.model.Users
+import com.emito.eribus.utils.Auth
 import com.emito.eribus.utils.Utils
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.bus_dialog_event.*
 import kotlinx.android.synthetic.main.feature_menu_general_menu_4_activity.*
 
 class DriverActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
@@ -44,6 +46,7 @@ class DriverActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         }catch (e:Exception){
             Log.d("error:", "Error! Can't Replace")
         }
+       // tvCurrentLoginEmail.text= Auth.currentUser.Email
     }
 
     override fun onBackPressed() {
@@ -158,7 +161,9 @@ class DriverActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
             } else if (imageView.id == R.id.settingImageView) {
                 Toast.makeText(this, "Clicked Setting.", Toast.LENGTH_SHORT).show()
             } else if (imageView.id == R.id.powerImageView) {
-                Toast.makeText(this, "Clicked Power.", Toast.LENGTH_SHORT).show()
+                FirebaseAuth.getInstance().signOut()
+                finish()
+                startActivity(Intent(this,LoginActivity::class.java))
             }
             imageView.setColorFilter(ContextCompat.getColor(this, R.color.md_white_1000), PorterDuff.Mode.SRC_ATOP)
             imageView.setBackgroundColor(ContextCompat.getColor(this,R.color.md_grey_700))

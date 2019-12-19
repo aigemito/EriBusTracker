@@ -12,7 +12,7 @@ tools:context=".activity.AddBusRouteActivity">
         android:layout_height="360dp">
 
         <TextView
-            android:id="@+id/textView228"
+            android:id="@+id/tvCurrentLoginEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -119,7 +119,7 @@ tools:context=".activity.AddBusRouteActivity">
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView228"
+            app:layout_constraintTop_toBottomOf="@+id/tvCurrentLoginEmail"
             app:srcCompat="@drawable/lightbulb" />
 
         <Spinner

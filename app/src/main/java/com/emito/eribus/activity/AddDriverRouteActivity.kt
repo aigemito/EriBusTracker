@@ -15,7 +15,7 @@ class AddDriverRouteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_driver_route)
-        val ref= FirebaseDatabase.getInstance().getReference("Users").orderByChild("UserType")
+        val ref= FirebaseDatabase.getInstance().getReference("Users").orderByChild("userType")
             .equalTo("Driver")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) { // Is better to use a List, because you don't know the size

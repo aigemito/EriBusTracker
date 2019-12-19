@@ -41,7 +41,7 @@
         android:fitsSystemWindows="true"
         app:itemIconTint="@color/md_grey_600"
         app:itemTextColor="@color/md_grey_600"
-        app:headerLayout="@layout/feature_menu_general_menu_4_nav_header"
+        app:headerLayout="@layout/feature_menu_general_menu_customer_nav_header"
         app:menu="@menu/menu_menu_customer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

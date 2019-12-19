@@ -19,13 +19,16 @@ import com.emito.eribus.LoginActivity
 import com.emito.eribus.R
 import com.emito.eribus.fragment.*
 import com.emito.eribus.model.Users
+import com.emito.eribus.utils.Auth
 import com.emito.eribus.utils.Utils
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.bus_dialog_event.*
 import kotlinx.android.synthetic.main.feature_customer_menu_general_menu_4_view_layout.*
 import kotlinx.android.synthetic.main.feature_menu_general_menu_4_activity.*
+import kotlinx.android.synthetic.main.feature_menu_general_menu_customer_nav_header.*
 
 class CustomerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
@@ -62,6 +65,7 @@ class CustomerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             false
         }
         initUI()
+//        tvCustomerCurrentLoginEmail.text= Auth.currentUser.Email
     }
 
     override fun onBackPressed() {
@@ -176,7 +180,9 @@ class CustomerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             } else if (imageView.id == R.id.settingImageView) {
                 Toast.makeText(this, "Clicked Setting.", Toast.LENGTH_SHORT).show()
             } else if (imageView.id == R.id.powerImageView) {
-                Toast.makeText(this, "Clicked Power.", Toast.LENGTH_SHORT).show()
+                FirebaseAuth.getInstance().signOut()
+                finish()
+                startActivity(Intent(this,LoginActivity::class.java))
             }
             imageView.setColorFilter(ContextCompat.getColor(this, R.color.md_white_1000), PorterDuff.Mode.SRC_ATOP)
             imageView.setBackgroundColor(ContextCompat.getColor(this,R.color.md_grey_700))

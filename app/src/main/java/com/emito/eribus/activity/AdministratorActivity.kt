@@ -13,20 +13,22 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.widget.RecyclerView
 import com.emito.eribus.LoginActivity
 import com.emito.eribus.R
 import com.emito.eribus.fragment.*
 import com.emito.eribus.model.Bus
 import com.emito.eribus.model.Routes
 import com.emito.eribus.model.Users
+import com.emito.eribus.utils.Auth
 import com.emito.eribus.utils.Utils
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.bus_dialog_event.*
+import kotlinx.android.synthetic.main.bus_dialog_event.tvCurrentLoginEmail
 import kotlinx.android.synthetic.main.feature_menu_general_menu_4_activity.*
+import kotlinx.android.synthetic.main.feature_menu_general_menu_4_nav_header.*
 import kotlinx.android.synthetic.main.fragment_login_list.*
 import kotlinx.android.synthetic.main.fragment_routes_list.*
 
@@ -40,6 +42,7 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         setContentView(R.layout.activity_administrator)
 
         initUI()
+        //tvCurrentLoginEmail.text= Auth.currentUser.Email
     }
 
     override fun onBackPressed() {
@@ -177,7 +180,9 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
             } else if (imageView.id == R.id.settingImageView) {
                 Toast.makeText(this, "Clicked Setting.", Toast.LENGTH_SHORT).show()
             } else if (imageView.id == R.id.powerImageView) {
-                Toast.makeText(this, "Clicked Power.", Toast.LENGTH_SHORT).show()
+                FirebaseAuth.getInstance().signOut()
+                finish()
+                startActivity(Intent(this,LoginActivity::class.java))
             }
             imageView.setColorFilter(ContextCompat.getColor(this, R.color.md_white_1000), PorterDuff.Mode.SRC_ATOP)
             imageView.setBackgroundColor(ContextCompat.getColor(this,R.color.md_grey_700))
@@ -254,11 +259,6 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         toolbar = findViewById(R.id.toolbar)
 
         toolbar.setNavigationIcon(R.drawable.baseline_menu_black_24)
-
-//        if (toolbar.navigationIcon != null) {
-//            toolbar.navigationIcon?.setColorFilter(
-//            ContextCompat.getColor(this, R.color.md_white_1000), PorterDuff.Mode.SRC_ATOP)         }
-
         toolbar.title = "EriBus"
 
         try {
@@ -292,31 +292,10 @@ class AdministratorActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         lp.copyFrom(dialog.window!!.attributes)
         lp.width = WindowManager.LayoutParams.MATCH_PARENT
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT
-//        val spn_from_date =
-//            dialog.findViewById<View>(R.id.spn_from_date) as Button
-//        val spn_from_time =
-//            dialog.findViewById<View>(R.id.spn_from_time) as Button
-//        val spn_to_date =
-//            dialog.findViewById<View>(R.id.spn_to_date) as Button
-//        val spn_to_time =
-//            dialog.findViewById<View>(R.id.spn_to_time) as Button
-//        val tv_email = dialog.findViewById<View>(R.id.tv_email) as TextView
           val et_FullName = dialog.findViewById<View>(R.id.etUserFullName) as EditText
           val et_Email = dialog.findViewById<View>(R.id.etUserEmail) as EditText
           val et_Password = dialog.findViewById<View>(R.id.etUserPassword) as EditText
-//        val et_location =
-//            dialog.findViewById<View>(R.id.et_location) as EditText
-//        val cb_allday: AppCompatCheckBox =
-//            dialog.findViewById<View>(R.id.cb_allday) as AppCompatCheckBox
-//        val spn_timezone: AppCompatSpinner =
-//            dialog.findViewById<View>(R.id.spn_timezone) as AppCompatSpinner
-//        val timezones =
-//            resources.getStringArray(R.array.timezone)
-//        val array: ArrayAdapter<String?> =
-//            ArrayAdapter<Any?>(this, R.layout.simple_spinner_item, timezones)
-//        array.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
-//        spn_timezone.setAdapter(array)
-//        spn_timezone.setSelection(0)
+
         (dialog.findViewById<View>(R.id.btnUserCreateCancel) as Button).setOnClickListener { dialog.dismiss() }
         (dialog.findViewById<View>(R.id.btnUserCreateSubmit) as Button).setOnClickListener {
 
